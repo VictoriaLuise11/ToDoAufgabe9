@@ -4,44 +4,27 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.todoaufgabe9.ui.theme.ToDoAufgabe9Theme
+import com.example.todoaufgabe9.ui.screen.ToDoScreen
 
+/**
+ * Die MainActivity ist der Einstiegspunkt der ToDo-App.
+ * Sie initialisiert die App und setzt die Benutzeroberfläche auf den Hauptbildschirm.
+ */
 class MainActivity : ComponentActivity() {
+
+    /**
+     * Wird aufgerufen, wenn die Aktivität erstellt wird.
+     * Hier wird die Edge-to-Edge-Darstellung aktiviert und der Hauptinhalt der App gesetzt.
+     *
+     * @param savedInstanceState Falls vorhanden, enthält dies den zuvor gespeicherten Zustand der Aktivität.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        enableEdgeToEdge() // Aktiviert eine durchgehende Darstellung für modernes Design.
+
         setContent {
-            ToDoAufgabe9Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+            // Ruft den Hauptbildschirm der App auf, der die ToDo-Liste anzeigt.
+            ToDoScreen(context = this)
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ToDoAufgabe9Theme {
-        Greeting("Android")
     }
 }

@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.todoaufgabe9"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.todoaufgabe9"
